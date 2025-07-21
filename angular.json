@@ -24,10 +24,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/tailwind.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -87,10 +88,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/tailwind.css"
             ],
             "scripts": []
           }

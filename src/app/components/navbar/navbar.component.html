@@ -1,0 +1,32 @@
+<div class="w-full bg-green-200 px-6 py-4 flex items-center justify-between relative">
+  <!-- Logo -->
+  <div class="flex items-center gap-2">
+    <img src="assets/images/logo_greenbeard.png" alt="GreenBeard" class="h-10" />
+  </div>
+
+  <!-- Burger button (mobile only) -->
+  <button class="md:hidden" (click)="isMenuOpen = !isMenuOpen">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-900" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+
+  <!-- MENU DESKTOP -->
+  <nav class="hidden md:flex gap-8 items-center text-white text-lg">
+    <a href="#" class="hover:underline">Créations</a>
+    <a href="#" class="hover:underline">À propos</a>
+    <a href="#" class="hover:underline">Contact</a>
+  </nav>
+
+  <!-- MENU MOBILE -->
+  <nav
+    *ngIf="isMenuOpen"
+    class="flex flex-col gap-4 items-center text-white text-lg absolute top-full left-0 w-full bg-green-200 px-6 py-4 z-50 md:hidden"
+  >
+    <a href="#" class="hover:underline">Créations</a>
+    <a href="#" class="hover:underline">À propos</a>
+    <a href="#" class="hover:underline">Contact</a>
+  </nav>
+</div>
