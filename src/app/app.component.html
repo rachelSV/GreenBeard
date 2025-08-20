@@ -1,5 +1,97 @@
+<div class="min-h-screen bg-main-bg bg-cover bg-center bg-no-repeat bg-fixed">
 
   <app-navbar></app-navbar>
   <app-header></app-header>
 
+  <section id="nouveaute">
+    <h1 class="text-3xl bg-white-bg py-5 px-3 mt-20 text-primary">Nouveautés</h1>
+    <h1 class="text-2xl font-bold text-center mt-4">" CleopEye "</h1>
+    <p class="text-center text-lg text-gray-700 mt-4">
+      La dernière création et innovation, par Greenbeard.
+    </p>
+    <app-nouveaute-section
+      [etapes]="etapes"
+    ></app-nouveaute-section>
+  </section>
+
+  <section id="creations-originales">
+    <h1 class="text-3xl bg-white-bg py-5 px-3 text-primary">Créations originales</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 px-6 py-8 mt-5 md:p-10">
+      <app-card-project
+        *ngFor="let monture of montures"
+        (click)="openModal(monture)"
+        [imageUrl]="monture.image"
+        [imageAlt]="monture.nom"
+        [title]="monture.nom"
+        [description]="monture.description"
+        [imageClass]="'w-full object-contain rounded-lg'"
+        [imageContainerClass]="'mb-4'"
+        [titleClass]="'text-xl font-semibold mb-2'"
+        [containerClass]="'p-8 border-2 border-gray-200'"
+        [buttonText]="'Découvrir la monture'"
+        [buttonClass]="'inline-block mt-4 bg-green-400 text-white py-2 px-4 rounded hover:bg-green-700 transition'"
+        [navigateTo]="'/monture/' + monture.id"
+      ></app-card-project>
+    </div>
+  </section>
+
+    <!-- Modal affichée quand un projet est sélectionné -->
+    <app-modal
+      [isOpen]="modalOpen"
+      [title]="selectedProject?.nom"
+      [description]="selectedProject?.description"
+      [imageUrl]="selectedProject?.image"
+      [imageAlt]="selectedProject?.nom"
+      (isOpenChange)="modalOpen = $event"
+    ></app-modal>
+
+
+  <section id="collages">
+    <h1 class="text-3xl bg-white-bg py-5 px-3 mt-10 text-primary">Collages</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 px-6 py-8 mt-5 md:p-10">
+      <app-card-project
+        *ngFor="let collage of collages"
+        (click)="openModal(collage)"
+        [imageUrl]="collage.image"
+        [imageAlt]="collage.nom"
+        [title]="collage.nom"
+        [description]="collage.description"
+        [imageClass]="'w-full object-contain rounded-lg'"
+        [imageContainerClass]="'mb-4'"
+        [titleClass]="'text-xl font-semibold mb-2'"
+        [containerClass]="'p-8 border-2 border-gray-200'"
+        [buttonText]="'Découvrir le collage'"
+        [buttonClass]="'inline-block mt-4 bg-green-400 text-white py-2 px-4 rounded hover:bg-green-700 transition'"
+        [navigateTo]="'/monture/' + collage.id"
+      ></app-card-project>
+    </div>
+  </section>
+
+  <section id="creations">
+    <h1 class="text-3xl bg-white-bg py-5 px-3 mt-10 text-primary">Galerie de créations</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 px-6 py-8 mt-5 md:p-10">
+      <app-card-project
+        *ngFor="let creation of creations"
+        (click)="openModal(creation)"
+        [imageUrl]="creation.image"
+        [imageAlt]="creation.nom"
+        [title]="creation.nom"
+        [description]="creation.description"
+        [imageClass]="'w-full object-contain rounded-lg'"
+        [imageContainerClass]="'mb-4'"
+        [titleClass]="'text-xl font-semibold mb-2'"
+        [containerClass]="'p-8 border-2 border-gray-200'"
+        [buttonText]="'Découvrir le collage'"
+        [buttonClass]="'inline-block mt-4 bg-green-400 text-white py-2 px-4 rounded hover:bg-green-700 transition'"
+        [navigateTo]="'/monture/' + creation.id"
+      ></app-card-project>
+    </div>
+  </section>
+
+  <section id="a-propos">
+    <app-about-me></app-about-me>
+  </section>
+
+
   <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,18 @@
+<div class="flex flex-col md:flex-row gap-6 p-6 md:px-20 md:py-10 items-stretch">
+  <!-- Vidéo -->
+  <div class="w-full md:w-1/2 aspect-[4/3] bg-black rounded overflow-hidden shadow-lg">
+    <video class="w-full h-full object-cover" autoplay muted loop controls>
+      <source src="assets/video/cleopeye.MOV" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Images -->
+  <div class="w-full md:w-1/2 grid grid-cols-2 gap-4">
+    <img
+      *ngFor="let img of etapes"
+      [src]="img"
+      alt="Étape de création"
+      class="w-full h-full object-cover rounded shadow"
+    />
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div *ngIf="isOpen" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60" (click)="closeModal()">
+  <div class="relative w-[90%] max-w-3xl rounded-lg bg-gradient-to-b from-white/5 to-white/40 p-6 shadow-xl backdrop-blur-3xl" (click)="stopPropagation($event)">
+    <button class="{{ buttonClass }}" (click)="closeModal()">✕</button>
+    <img *ngIf="imageUrl" [src]="imageUrl" alt="Image projet" class="{{ imageClass }}"/>
+    <h2 class="{{ titleClass }}">{{ title }}</h2>
+    <p class="{{ descriptionClass }}">{{ description }}</p>
+  </div>
+</div>
