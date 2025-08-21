@@ -19,7 +19,7 @@ export class CardProjectComponent {
   @Input() imageClass = ''; 
   @Input() imageContainerClass = '';
   @Input() containerClass = ''; 
-  @Input() buttonText = 'Découvrir la monture';
+  @Input() buttonText = '';
   @Input() buttonClass = ''; 
   @Input() navigateTo!: string; 
 }

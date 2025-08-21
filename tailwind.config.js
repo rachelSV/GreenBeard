@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'main-bg': "url('/GreenBeard/assets/images/background_full_R.webp')"
-        // 'main-bg': "url('/assets/images/background_full_R.webp')"
+        // 'main-bg': "url('/GreenBeard/assets/images/background_full_R.webp')"
+        'main-bg': "url('/assets/images/background_full_R.webp')"
       },
       fontFamily: {
         title: ['"Playfair Display"', 'serif'],

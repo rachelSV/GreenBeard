@@ -5,7 +5,7 @@
 
   <section id="nouveaute">
     <h1 class="text-3xl bg-white-bg py-5 px-3 mt-20 text-primary">Nouveautés</h1>
-    <h1 class="text-2xl font-bold text-center mt-4">" CleopEye "</h1>
+    <h1 class="text-2xl font-bold text-center mt-4">" Cerkoeil "</h1>
     <p class="text-center text-lg text-gray-700 mt-4">
       La dernière création et innovation, par Greenbeard.
     </p>
@@ -16,7 +16,7 @@
 
   <section id="creations-originales">
     <h1 class="text-3xl bg-white-bg py-5 px-3 text-primary">Créations originales</h1>
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 px-6 py-8 mt-5 md:p-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 px-6 py-8 mt-5 md:p-10">
       <app-card-project
         *ngFor="let monture of montures"
         (click)="openModal(monture)"
@@ -60,9 +60,6 @@
         [imageContainerClass]="'mb-4'"
         [titleClass]="'text-xl font-semibold mb-2'"
         [containerClass]="'p-8 border-2 border-gray-200'"
-        [buttonText]="'Découvrir le collage'"
-        [buttonClass]="'inline-block mt-4 bg-green-400 text-white py-2 px-4 rounded hover:bg-green-700 transition'"
-        [navigateTo]="'/monture/' + collage.id"
       ></app-card-project>
     </div>
   </section>
@@ -81,7 +78,7 @@
         [imageContainerClass]="'mb-4'"
         [titleClass]="'text-xl font-semibold mb-2'"
         [containerClass]="'p-8 border-2 border-gray-200'"
-        [buttonText]="'Découvrir le collage'"
+        [buttonText]="'Infos sur la monture'"
         [buttonClass]="'inline-block mt-4 bg-green-400 text-white py-2 px-4 rounded hover:bg-green-700 transition'"
         [navigateTo]="'/monture/' + creation.id"
       ></app-card-project>
@@ -92,6 +89,24 @@
     <app-about-me></app-about-me>
   </section>
 
+  <section id="faq">
+    <app-faq
+      [items]="items"
+    ></app-faq>
+  </section>
+
+  <section id="contact" class="py-10 md:py-16 px-6">
+  <app-contact-form
+    title="Contactez GreenBeard"
+    titleClass="text-4xl md:text-5xl font-black text-green-900 text-center"
+    description="Un projet, une envie de monture unique ? Laissez un message à Arthur."
+    descriptionClass="text-center text-gray-600 max-w-2xl mx-auto mt-3"
+    formClass="relative max-w-4xl mx-auto bg-white/90 backdrop-blur rounded-2xl border border-green-100 shadow-xl p-6 md:p-10"
+    inputClass="w-full rounded-xl border border-green-200 bg-white/80 text-gray-800 placeholder:text-gray-400 shadow-sm focus:border-green-400 focus:ring-2 focus:ring-green-200 outline-none py-3"
+    labelClass="text-sm font-semibold text-green-900"
+    ctaClass="inline-flex items-center justify-center rounded-2xl px-6 py-3 font-semibold text-white bg-green-700 hover:bg-green-800 shadow-lg"
+  ></app-contact-form>
+</section>
 
   <router-outlet></router-outlet>
 </div>

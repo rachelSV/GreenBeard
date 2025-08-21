@@ -7,6 +7,8 @@ import { NgFor, NgForOf } from '@angular/common';
 import { ModalComponent } from './components/modal/modal.component';
 import { NouveauteSectionComponent } from './components/nouveaute-section/nouveaute-section.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +22,9 @@ import { AboutMeComponent } from './components/about-me/about-me.component';
     NgForOf, 
     ModalComponent,
     NouveauteSectionComponent,
-    AboutMeComponent
+    AboutMeComponent,
+    FaqComponent,
+    ContactFormComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -29,12 +33,11 @@ export class AppComponent {
   title = 'Greenbeard';
 
   // Section Nouveautés
-  videoUrl = 'https://www.youtube.com/embed/dQw4w9WgXcQ';
   etapes = [
-    'assets/images/montures/cleop1.jpg',
-    'assets/images/montures/cleop2.jpg',
-    'assets/images/montures/cleop3.jpg',
-    'assets/images/montures/cleop1.jpg'
+    'assets/images/montures/cerkoeil.jpg',
+    'assets/images/montures/cerkoeil1.jpg',
+    'assets/images/montures/cerkoeil2.jpg',
+    'assets/images/montures/cerkoeil3.jpg'
   ];
 
   // Section card project
@@ -59,6 +62,13 @@ export class AppComponent {
     },
     {
       id: 4,
+      nom: 'Galaxite',
+      description: '',
+      image: 'assets/images/montures/galaxite2.jpg'
+    }
+    ,
+    {
+      id: 5,
       nom: 'Galaxite',
       description: '',
       image: 'assets/images/montures/galaxite2.jpg'
@@ -128,4 +138,23 @@ export class AppComponent {
     this.modalOpen = true;
     document.body.style.overflow = 'hidden'; // empêche le scroll
   }
+
+  items = [
+    {
+      question: 'Comment on fabrique des lunettes ?',
+      answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    },
+    {
+      question: 'Comment entretenir ses lunettes ?',
+      answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    },
+    {
+      question: 'Quel matériaux sont choisis et pourquoi ?',
+      answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    },
+    {
+      question: 'Comment obtenir ma paire personnalisée ?',
+      answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    }
+  ];
 }
