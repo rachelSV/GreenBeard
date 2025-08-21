@@ -1,0 +1,13 @@
+<div class="{{containerClass}}">
+
+  <div class="{{ imageContainerClass }}">
+    <img src="{{imageUrl}}" alt="{{imageAlt}}" class="{{imageClass}}" />
+  </div>
+
+  <div class="">
+    <h2 class="{{ titleClass }}">{{ title }}</h2>
+    <p class="{{ descriptionClass }}">{{ description }}</p>
+    <a [routerLink]="navigateTo" class="{{buttonClass}}">{{ buttonText }}</a>
+  </div>
+
+</div>
