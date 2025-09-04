@@ -1,1 +1,65 @@
-<p>contact-form works!</p>
+<section class="relative py-16 px-6">
+  <!-- halo de fond très léger -->
+  <div class="absolute inset-0 bg-gradient-to-b from-green-50/70 to-emerald-50/70"></div>
+
+  <div class="relative max-w-4xl mx-auto">
+    <!-- Titre / description -->
+    <div class="mb-8">
+      <p class="{{titleClass}}">{{title}}</p>
+      <p class="{{descriptionClass}}">{{description}}</p>
+    </div>
+
+    <!-- Alertes -->
+    <div *ngIf="displayAlert" [ngClass]="alertClass">{{ alertMessage }}</div>
+
+    <!-- Carte formulaire -->
+    <form [formGroup]="contactForm"class="{{formClass}}">
+      <div class="grid gap-6 md:gap-8 sm:grid-cols-2">
+        <!-- NOM -->
+        <div>
+          <label for="name" class="{{labelClass}} block mb-2">{{ nameLabel }}</label>
+          <div class="relative">
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 h-9 w-9 rounded-lg bg-pink-300 grid place-items-center">
+              <img [src]="imgPathUserIconWhite" [alt]="nameLabel" class="h-4 w-4 opacity-80" />
+            </span>
+            <input id="name" type="text" formControlName="name" class="{{inputClass}} pl-14" />
+          </div>
+          <p *ngIf="contactForm.get('name')?.invalid && (contactForm.get('name')?.touched || contactForm.get('name')?.dirty)"
+             class="text-rose-600 text-sm font-medium mt-1">Le nom est requis</p>
+        </div>
+
+        <!-- EMAIL -->
+        <div>
+          <label for="email" class="{{labelClass}} block mb-2">{{ emailLabel }}</label>
+          <div class="relative">
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 h-9 w-9 rounded-lg bg-pink-300 grid place-items-center">
+              <img [src]="imgPathEmailIconWhite" [alt]="emailLabel" class="h-4 w-4 opacity-80" />
+            </span>
+            <input id="email" type="email" formControlName="email" class="{{inputClass}} pl-14" />
+          </div>
+          <p *ngIf="contactForm.get('email')?.invalid && (contactForm.get('email')?.touched || contactForm.get('email')?.dirty)"
+             class="text-pink-600 text-sm font-medium mt-1">L'email est requis</p>
+        </div>
+      </div>
+
+      <!-- MESSAGE -->
+      <div class="mt-6">
+        <label for="message" class="{{labelClass}} block mb-2">{{ messageLabel }}</label>
+        <div class="relative">
+          <span class="absolute left-3 top-4 h-9 w-9 rounded-lg bg-pink-300 grid place-items-center">
+            <img [src]="imgPathMessageIconWhite" [alt]="messageLabel" class="h-4 w-4 opacity-80" />
+          </span>
+          <textarea id="message" formControlName="message" class="{{inputClass}} pl-14 min-h-[140px] resize-y" placeholder="Objet : Création unique d'une monture..."></textarea>
+        </div>
+        <p *ngIf="contactForm.get('message')?.invalid && (contactForm.get('message')?.touched || contactForm.get('message')?.dirty)"
+           class="text-pink-600 text-sm font-medium mt-1">Le message est vide</p>
+      </div>
+
+      <div class="pt-4">
+        <button type="button" (click)="onSubmit()" class="{{ctaClass}}">
+          Envoyer
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

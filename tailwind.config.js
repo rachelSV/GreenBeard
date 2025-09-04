@@ -6,7 +6,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
+        // version prod
         'main-bg': "url('/GreenBeard/assets/images/background_full_R.webp')"
+        //version locale
         // 'main-bg': "url('/assets/images/background_full_R.webp')"
       },
       fontFamily: {
