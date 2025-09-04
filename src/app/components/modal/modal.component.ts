@@ -13,13 +13,15 @@ export class ModalComponent {
   @Input() isOpen: boolean = false;
   @Input() title: string = '';
   @Input() description: string = '';
+  @Input() descriptionShort: string = '';
   @Input() imageUrl: string = '';
   @Input() imageAlt: string = '';
   
-  @Input() buttonClass: string = 'absolute top-2 right-2 text-white text-xl';
-  @Input() imageClass: string = 'mx-auto max-h-40 mb-4 rounded';
-  @Input() titleClass: string = 'text-2xl font-semibold mb-4 text-whit';
-  @Input() descriptionClass: string = 'text-white mb-4'; 
+  @Input() buttonClass: string = 'absolute top-2 right-2 text-black text-xl';
+  @Input() imageClass: string = 'mx-auto max-h-100 mb-4 p-2 rounded';
+  @Input() titleClass: string = 'text-2xl font-semibold mb-4 text-primary';
+  @Input() descriptionClass: string = 'text-black mb-4';
+  @Input() descriptionShortClass: string = 'text-black/70 mb-4';
 
   @Output() isOpenChange = new EventEmitter<boolean>();
 

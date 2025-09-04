@@ -58,48 +58,44 @@ export class ContactFormComponent {
     this.contactForm = this.fb.group({
       name: ['', [this.showName? Validators.required: null]],
       email: ['', this.showEmail? [Validators.required, Validators.email]: null],
-      phone: [''],
-      city: [''],
       message: ['', this.showMessage? [Validators.required]: null]
     }); 
   }
 
   onSubmit() {
-  // if (this.contactForm.invalid) {
-  //   this.contactForm.markAllAsTouched();
-  //   return;
-  // }
+  if (this.contactForm.invalid) {
+    this.contactForm.markAllAsTouched();
+    return;
+  }
 
-  // const formData = this.contactForm.value;
+  const formData = this.contactForm.value;
 
-  // const body = new FormData();
-  // body.append("name", formData.name);
-  // body.append("email", formData.email);
-  // body.append("message", formData.message);
-  // if (formData.phone) body.append("phone", formData.phone);
-  // if (formData.city) body.append("city", formData.city);
+  const body = new FormData();
+  body.append("name", formData.name);
+  body.append("email", formData.email);
+  body.append("message", formData.message);
 
-  // fetch("https://formspree.io/f/xrblbzgw", {
-  //   method: "POST",
-  //   body: body,
-  //   headers: {
-  //     Accept: "application/json"
-  //   }
-  // }).then(response => {
-  //   if (response.ok) {
-  //     this.alertClass = 'text-primary px-4 py-2 rounded flex gap-2 items-center';
-  //     this.alertMessage = "Message envoyé avec succès ! 🎉";
-  //     this.displayAlert = true;
-  //     this.contactForm.reset();
-  //   } else {
-  //     this.alertClass = 'text-primary px-4 py-2 rounded flex gap-2 items-center';
-  //     this.alertMessage = "Une erreur est survenue ❌. Merci de réessayer.";
-  //     this.displayAlert = true;
-  //   }
-  // }).catch(error => {
-  //   this.alertClass = 'text-primary px-4 py-2 rounded flex gap-2 items-center';
-  //   this.alertMessage = "Erreur réseau 🌐. Merci de vérifier votre connexion.";
-  //   this.displayAlert = true;
-  // });
+  fetch("https://formspree.io/f/xpwjjooq", {
+    method: "POST",
+    body: body,
+    headers: {
+      Accept: "application/json"
+    }
+  }).then(response => {
+    if (response.ok) {
+      this.alertClass = 'text-primary px-4 py-2 rounded flex gap-2 items-center';
+      this.alertMessage = "Message envoyé avec succès ! 🎉";
+      this.displayAlert = true;
+      this.contactForm.reset();
+    } else {
+      this.alertClass = 'text-primary px-4 py-2 rounded flex gap-2 items-center';
+      this.alertMessage = "Une erreur est survenue ❌. Merci de réessayer.";
+      this.displayAlert = true;
+    }
+  }).catch(error => {
+    this.alertClass = 'text-primary px-4 py-2 rounded flex gap-2 items-center';
+    this.alertMessage = "Erreur réseau 🌐. Merci de vérifier votre connexion.";
+    this.displayAlert = true;
+  });
   }
 }

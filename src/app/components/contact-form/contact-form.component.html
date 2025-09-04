@@ -10,7 +10,7 @@
     </div>
 
     <!-- Alertes -->
-    <div *ngIf="displayAlert" [ngClass]="alertClass"></div>
+    <div *ngIf="displayAlert" [ngClass]="alertClass">{{ alertMessage }}</div>
 
     <!-- Carte formulaire -->
     <form [formGroup]="contactForm"class="{{formClass}}">
@@ -38,7 +38,7 @@
             <input id="email" type="email" formControlName="email" class="{{inputClass}} pl-14" />
           </div>
           <p *ngIf="contactForm.get('email')?.invalid && (contactForm.get('email')?.touched || contactForm.get('email')?.dirty)"
-             class="text-pink-400 text-sm font-medium mt-1">L'email est requis</p>
+             class="text-pink-600 text-sm font-medium mt-1">L'email est requis</p>
         </div>
       </div>
 
@@ -52,7 +52,7 @@
           <textarea id="message" formControlName="message" class="{{inputClass}} pl-14 min-h-[140px] resize-y" placeholder="Objet : Création unique d'une monture..."></textarea>
         </div>
         <p *ngIf="contactForm.get('message')?.invalid && (contactForm.get('message')?.touched || contactForm.get('message')?.dirty)"
-           class="text-pink-400 text-sm font-medium mt-1">Le message est vide</p>
+           class="text-pink-600 text-sm font-medium mt-1">Le message est vide</p>
       </div>
 
       <div class="pt-4">

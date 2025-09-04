@@ -9,6 +9,7 @@ import { NouveauteSectionComponent } from './components/nouveaute-section/nouvea
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,8 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
     NouveauteSectionComponent,
     AboutMeComponent,
     FaqComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    FooterComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -45,7 +47,8 @@ export class AppComponent {
     {
       id: 1,
       nom: 'Cerkoeil',
-      description: '',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+      descriptionShort: 'Matériaux : acétate, bijoux en acétate...',
       image: 'assets/images/montures/cerkoeil.jpg'
     },
     {
@@ -62,13 +65,6 @@ export class AppComponent {
     },
     {
       id: 4,
-      nom: 'Galaxite',
-      description: '',
-      image: 'assets/images/montures/galaxite2.jpg'
-    }
-    ,
-    {
-      id: 5,
       nom: 'Galaxite',
       description: '',
       image: 'assets/images/montures/galaxite2.jpg'
